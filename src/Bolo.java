@@ -4,5 +4,10 @@ public class Bolo extends Lanche {
     private String massa;
     private String recheio;
     private String cobertura;
-    
+
+    // Construtor da subclasse Bolo
+    public Bolo() {
+        super.setTempoPreparo(10);
+    }
+
 }

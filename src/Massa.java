@@ -3,6 +3,11 @@ public class Massa extends Lanche {
     // todas as massas têm o atributo molho
     private String molho;
 
+    // Construtor da subclasse Massa
+    public Massa() {
+        super.setTempoPreparo(30);
+    }
+
     // Getters e Setters da Lanche
     public String getMolho() {
         return molho;
