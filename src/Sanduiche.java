@@ -28,8 +28,14 @@ public class Sanduiche extends Lanche {
 
     @Override
     public String toString() {
-        return "Sanduiche{" +
-                "ingredientes=" + Arrays.toString(ingredientes).strip() +
-                '}';
+        String lanche="[ ";
+        for(int i=0;i<ingredientes.length;i++) {
+            if(ingredientes[i]!=null) {
+                lanche += ingredientes[i];
+                lanche += " ";
+            }
+        }
+        lanche += "]";
+        return lanche;
     }
 }
