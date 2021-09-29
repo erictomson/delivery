@@ -13,17 +13,12 @@ public class Sanduiche extends Lanche {
         super.setTempoPreparo(15);
     }
 
-    // Getters e Setters da subclasse Sanduiche
-    public String[] getIngredientes() {
-        return ingredientes;
-    }
-
-    public void setIngredientes(String[] ingredientes) {
-        this.ingredientes = ingredientes;
+    public void setContIngredientes(int contIngredientes) {
+        this.contIngredientes = contIngredientes;
     }
 
     public void adicionarIngrediente(String ingrediente) {
-        if(contIngredientes<ingrediente.length()) {
+        if(contIngredientes<ingredientes.length) {
             this.ingredientes[contIngredientes] = ingrediente;
             contIngredientes++;
         } else {

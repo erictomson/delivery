@@ -55,8 +55,7 @@ public class Main {
                     break;
                 case 9:
                     // mostrarLanche(sanduiche);
-                    System.out.println("Seu lanche neste momento: ");
-                    System.out.println(sanduiche.toString());
+                    mostrarLanche(sanduiche);
                     break;
                 case 0:
                     System.out.println("Lanche em produção");
