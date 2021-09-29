@@ -4,10 +4,72 @@ public class Main {
     public static void main(String[] args) {
         // No programa principal o usuário deve receber um menu podendo escolher entre as
         // opções [1] sanduíches, [2] massas, [3] bolos.
-
         do {
-            mostraMenuPrincipal();
+            mostrarMenuPrincipal();
         } while(true);
+    }
+
+    private static void fecharPedido() {
+        Sanduiche sanduiche = new Sanduiche();
+        System.out.println("==================");
+        System.out.println("Fechar Pedido");
+        System.out.println("Distância da entrega: ");
+        // Leitura da distância
+        System.out.println("Tempo estimado de entrega: "
+                + (sanduiche.getTempoPreparo()+sanduiche.calcularEntrega(lerOpcao())) + " minutos");
+    }
+
+    private static void mostrarMenuPrincipal() {
+        // Mostrar Menu Principal
+        exibirOpcoesMenuPrincipal();
+        int opcao = lerOpcao();
+        // System.out.println("Opção digitada: " + opcao);
+        switch (opcao) {
+            case 1:
+                System.out.println("Opção escolhida: sanduiche");
+                montarSanduiche();
+                break;
+            case 2:
+                System.out.println("Opção escolha: massas");
+                // Midori, eu sei que você gosta muito de arrow functions,
+                // mas aqui foi feito com break por motivos didáticos"
+                break;
+            case 3:
+                System.out.println("Opção escolha: bolos");
+                // Midori, eu sei que você gosta muito de arrow functions,
+                // mas aqui foi feito com break por motivos didáticos"
+                break;
+            case 4:
+                fecharPedido();
+                // Midori, eu sei que você gosta muito de arrow functions,
+                // mas aqui foi feito com break por motivos didáticos"
+                break;
+            case 0:
+                System.out.println("Opção escolha: sair do sistema...");
+                // Executa a saída do sistema com código 0
+                System.exit(0);
+                // Midori, eu sei que você gosta muito de arrow functions,
+                // mas aqui foi feito com break por motivos didáticos"
+                break;
+            default:
+                System.out.println("Opção inválida!");
+        }
+    }
+
+    private static void exibirOpcoesMenuPrincipal() {
+        System.out.println("Menu Delivery");
+        System.out.println("[1] Sanduiches");
+        System.out.println("[2] Massas");
+        System.out.println("[3] Bolos");
+        System.out.println("[4] Fechar Pedido");
+        System.out.println("[0] SAIR");
+        System.out.println("Digite a sua opção: ");
+    }
+
+    private static int lerOpcao() {
+        // Configurar Scanner leitura da opção escolhida
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
     }
 
     public static void montarSanduiche() {
@@ -22,11 +84,10 @@ public class Main {
             System.out.println("[2] Hamburguer    [6] Molho Especial");
             System.out.println("[3] Bacon         [7] Alface");
             System.out.println("[4] Ovo           [8] Tomate");
-            System.out.println("[9] Montar Lanche [0] SAIR");
+            System.out.println("[9] Montar Lanche [0] Voltar ao Menu Principal");
             System.out.println("Opção: ");
             // Leitura da opção do usuário
-            Scanner scanner = new Scanner(System.in);
-            int opcao = scanner.nextInt();
+            int opcao = lerOpcao();
             // Tratando a opção
             switch (opcao) {
                 case 1:
@@ -59,8 +120,8 @@ public class Main {
                     break;
                 case 0:
                     System.out.println("Lanche em produção");
-                    mostraMenuPrincipal();
-                    break;
+                    return;
+                    //break;
                 default:
                     System.out.println("Opção inválida!");
                     break;
@@ -77,35 +138,4 @@ public class Main {
 
     public static void mostrarMenuBolos() {}
 
-    private static void mostraMenuPrincipal() {
-        // Menu Principal
-        System.out.println("Menu Delivery");
-        System.out.println("[1] Sanduiches");
-        System.out.println("[2] Massas");
-        System.out.println("[3] Bolos");
-        System.out.println("[0] SAIR");
-        System.out.println("Digite a sua opção: ");
-        // Configurar Scanner leitura da opção escolhida
-        Scanner scanner = new Scanner(System.in);
-        int opcao = scanner.nextInt();
-        // System.out.println("Opção digitada: " + opcao);
-        switch (opcao) {
-            case 1:
-                System.out.println("Opção escolha: sanduiche");
-                montarSanduiche();
-            case 2:
-                System.out.println("Opção escolha: massas");
-                break;
-            case 3:
-                System.out.println("Opção escolha: bolos");
-                break;
-            case 0:
-                System.out.println("Opção escolha: sair do sistema...");
-                // Executa a saída do sistema com código 0
-                System.exit(0);
-                break;
-            default:
-                System.out.println("Opção inválida!");
-        }
-    }
 }

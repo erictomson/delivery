@@ -43,7 +43,7 @@ public abstract class Lanche {
     }
 
     public int calcularEntrega(int distancia) {
-        // Calcular e retornar o tempo de entrega
+        // Calcular e retornar o tempo de entrega (em minutos)
         return getTempoEntrega()*distancia;
     }
 

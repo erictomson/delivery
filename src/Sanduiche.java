@@ -6,7 +6,11 @@ public class Sanduiche extends Lanche {
     // Todos os lanches derivam da classe Lanche
     // Existem 3 tipos de lanches: sanduíche, massa e bolo
     // Sanduíche deve receber um vetor de até 10 ingredientes
-    private String[] ingredientes=new String[10];
+    private String[] ingredientes=new String[10]; //ultimo elemento: lenght - 1 = 9
+
+    public void setIngredientes(String[] ingredientes) {
+        this.ingredientes = ingredientes;
+    }
 
     // Construtor da subclasse Sanduiche
     public Sanduiche(){
@@ -18,6 +22,8 @@ public class Sanduiche extends Lanche {
     }
 
     public void adicionarIngrediente(String ingrediente) {
+        // contIngredientes: próxima posição livre
+        // do array ingredientes
         if(contIngredientes<ingredientes.length) {
             this.ingredientes[contIngredientes] = ingrediente;
             contIngredientes++;
@@ -26,15 +32,19 @@ public class Sanduiche extends Lanche {
         }
     }
 
-    @Override
+        @Override
     public String toString() {
+        // montar string de ingredientes para retorno do método
         String lanche="[ ";
-        for(int i=0;i<ingredientes.length;i++) {
-            if(ingredientes[i]!=null) {
-                lanche += ingredientes[i];
-                lanche += " ";
+        // percorrer o array de ingredientes
+        // somente concatenar com a string lanche
+        // quanto diferente de null
+            for (String ingrediente : ingredientes) {
+                if (ingrediente != null) {
+                    lanche += ingrediente;
+                    lanche += " ";
+                }
             }
-        }
         lanche += "]";
         return lanche;
     }
