@@ -25,34 +25,15 @@ public class Main {
         int opcao = lerOpcao();
         // System.out.println("Opção digitada: " + opcao);
         switch (opcao) {
-            case 1:
-                System.out.println("Opção escolhida: sanduiche");
-                montarSanduiche();
-                break;
-            case 2:
-                System.out.println("Opção escolha: massas");
-                // Midori, eu sei que você gosta muito de arrow functions,
-                // mas aqui foi feito com break por motivos didáticos"
-                break;
-            case 3:
-                System.out.println("Opção escolha: bolos");
-                // Midori, eu sei que você gosta muito de arrow functions,
-                // mas aqui foi feito com break por motivos didáticos"
-                break;
-            case 4:
-                fecharPedido();
-                // Midori, eu sei que você gosta muito de arrow functions,
-                // mas aqui foi feito com break por motivos didáticos"
-                break;
-            case 0:
-                System.out.println("Opção escolha: sair do sistema...");
-                // Executa a saída do sistema com código 0
-                System.exit(0);
-                // Midori, eu sei que você gosta muito de arrow functions,
-                // mas aqui foi feito com break por motivos didáticos"
-                break;
-            default:
-                System.out.println("Opção inválida!");
+            case 1 -> { System.out.println("Opção escolhida: sanduiche");
+                        montarSanduiche(); }
+            case 2 -> System.out.println("Opção escolha: massas");
+            case 3 -> System.out.println("Opção escolha: bolos");
+            case 4 -> fecharPedido();
+            case 0 -> { System.out.println("Opção escolha: sair do sistema...");
+                // Executa a saída do sistema com código 0 (sucesso)
+                System.exit(0); }
+            default -> System.out.println("Opção inválida!");
         }
     }
 
@@ -88,43 +69,19 @@ public class Main {
             System.out.println("Opção: ");
             // Leitura da opção do usuário
             int opcao = lerOpcao();
-            // Tratando a opção
+            // Tratando a opção usando enhanced switch
             switch (opcao) {
-                case 1:
-                    sanduiche.adicionarIngrediente("Queijo");
-                    break;
-                case 2:
-                    sanduiche.adicionarIngrediente("Hamburguer");
-                    break;
-                case 3:
-                    sanduiche.adicionarIngrediente("Bacon");
-                    break;
-                case 4:
-                    sanduiche.adicionarIngrediente("Ovo");
-                    break;
-                case 5:
-                    sanduiche.adicionarIngrediente("Presunto");
-                    break;
-                case 6:
-                    sanduiche.adicionarIngrediente("Molho Especial");
-                    break;
-                case 7:
-                    sanduiche.adicionarIngrediente("Alface");
-                    break;
-                case 8:
-                    sanduiche.adicionarIngrediente("Tomate");
-                    break;
-                case 9:
-                    // mostrarLanche(sanduiche);
-                    mostrarLanche(sanduiche);
-                    break;
-                case 0:
-                    System.out.println("Lanche em produção");
-                    return;
-                    //break;
-                default:
-                    System.out.println("Opção inválida!");
-                    break;
+                case 1 -> sanduiche.adicionarIngrediente("Queijo");
+                case 2 -> sanduiche.adicionarIngrediente("Hamburguer");
+                case 3 -> sanduiche.adicionarIngrediente("Bacon");
+                case 4 -> sanduiche.adicionarIngrediente("Ovo");
+                case 5 -> sanduiche.adicionarIngrediente("Presunto");
+                case 6 -> sanduiche.adicionarIngrediente("Molho Especial");
+                case 7 -> sanduiche.adicionarIngrediente("Alface");
+                case 8 -> sanduiche.adicionarIngrediente("Tomate");
+                case 9 -> mostrarLanche(sanduiche);
+                case 0 -> { System.out.println("Lanche em produção"); return; }
+                default -> System.out.println("Opção inválida!");
             }
         } while (true);
     }
